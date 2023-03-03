@@ -17,4 +17,27 @@ public class LinqQueries
     {
         return librosCollection;
     }
+
+    //Where. Reto 1 -> Filtrar libros publicados a partir del 2000
+    public IEnumerable<Book> LibrosDespues2000()
+    {
+        //Extension method
+        //return librosCollection.Where(p => p.PublishedDate.Year > 2000);
+
+        //Query expresion
+        return from libros in librosCollection where libros.PublishedDate.Year > 2000 select libros;
+    }
+
+    //Where. Reto 2 -> Mas de 250 paginas y que contenga el titulo "in Action"
+    public IEnumerable<Book> LibrosPaginasTitulo()
+    {
+        //Extension method
+        //return librosCollection.Where(p => p.PageCount >= 250 && p.Title.Contains("in Action")); 
+        
+        //Query expresion
+        return from libros in librosCollection where libros.PageCount >= 250 && libros.Title.Contains("in Action") select libros;
+
+    }
+
+
 }
