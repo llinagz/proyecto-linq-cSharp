@@ -1,5 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("¡Hola, Mundo!");
 
 LinqQueries queries = new LinqQueries();
 
@@ -10,8 +9,16 @@ LinqQueries queries = new LinqQueries();
 //PrintValues(queries.LibrosDespues2000());
 
 //Where. Reto 2 ->
-PrintValues(queries.LibrosPaginasTitulo());
+//PrintValues(queries.LibrosPaginasTitulo());
 
+//All. Reto 1 -> Todos los libros tienen Status
+//Console.WriteLine($" ¿Todos los libros tienen status?: {queries.TodosLosLibrosTienenStatus()}");
+
+//Any. Reto 2 -> Si algun libro fue publicado en 2005
+//Console.WriteLine($" ¿Algún libro fue publicado en 2005?: {queries.AlMenosUnLibroEn2005()}");
+
+//Contains
+PrintValues(queries.LibrosDePython());
 
 
 

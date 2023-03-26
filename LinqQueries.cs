@@ -1,6 +1,7 @@
 public class LinqQueries
 {
     private List<Book> librosCollection = new List<Book>();
+    
     public LinqQueries()
     {
         using(StreamReader reader = new StreamReader("books.json"))
@@ -37,6 +38,24 @@ public class LinqQueries
         //Query expresion
         return from libros in librosCollection where libros.PageCount >= 250 && libros.Title.Contains("in Action") select libros;
 
+    }
+
+    //All. Reto 1
+    public bool TodosLosLibrosTienenStatus()
+    {
+        return librosCollection.All(p=> p.Status!= string.Empty);
+    }
+
+    //Any. Reto 2
+    public bool AlMenosUnLibroEn2005()
+    {
+        return librosCollection.Any(p=> p.PublishedDate.Year == 2005); 
+    }
+
+    //Contains
+    public IEnumerable<Book> LibrosDePython()
+    {
+        return librosCollection.Where(p=>p.Categories.Contains("Python"));
     }
 
 
